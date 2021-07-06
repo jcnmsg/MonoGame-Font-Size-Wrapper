@@ -4,7 +4,7 @@ A simple wrapper for handling various font sizes for a given font family with ea
 
 ## Description
 
-While MonoGame allows you to provide a scaling factor when drawing text, it will probably look blurred or jagged because it is effectively up-scaling or down-scaling the bitmap generated from the original size you provided. The alternative is to load all the font sizes you need for a given font family and use them interchangeably, but even then it becomes a chore to load and manage them. Hence the creation of this little wrapper.
+While MonoGame allows you to provide a scaling factor when drawing text, it will probably look blurred or jagged because it is effectively up-scaling or down-scaling the bitmap generated from the size you provided in the original SpriteFont. The alternative is to load all the font sizes you need for a given font family and use them interchangeably, but even then it becomes a chore to load and manage them. Hence the creation of this little wrapper.
 
 In a nutshell, it's just a simpler way to load font families with different sizes, managing and drawing text using them. 
 
@@ -56,4 +56,4 @@ If everything goes according to plan, you should see something like [this](https
 Feel free to contribute if you feel like something could use some work. 
 
 ## License
-[MIT](https://choosealicense.com/licenses/mit/)
+[The MIT License (MIT)](https://choosealicense.com/licenses/mit/)
