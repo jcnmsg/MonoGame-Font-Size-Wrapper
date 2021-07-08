@@ -58,6 +58,9 @@ namespace FontExample
                 Font.DrawString(font.FontName, font.Size, $"{_exampleText} {measuredString.X},{measuredString.Y}", new Vector2(8, 72 * i + 8), Color.White);
             }
 
+            // Tries to draw with unexisting by picking the closest available size and scaling accordingly
+            //Font.DrawString("Arial", 55, "Hello World!", new Vector2(8, 8), Color.White, true);
+
             _spriteBatch.End();
 
             base.Draw(gameTime);

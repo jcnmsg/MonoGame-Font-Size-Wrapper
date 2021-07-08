@@ -4,11 +4,11 @@ A simple wrapper for handling various font sizes for a given font family with ea
 
 ## Description
 
-While MonoGame allows you to provide a scaling factor when drawing text, it will probably look blurred or jagged because it is effectively up-scaling or down-scaling the bitmap generated from the size you provided in the original SpriteFont. The alternative is to load all the font sizes you need for a given font family and use them interchangeably, but even then it becomes a chore to load and manage them. Hence the creation of this little wrapper.
+While MonoGame allows you to provide a scaling factor when drawing text, it will probably look blurred because it is effectively up-scaling or down-scaling the bitmap generated from the size you provided in the original SpriteFont file. The alternative is to load all the font sizes you need for a given font family and use them interchangeably, but even then it becomes a chore to load and manage them. Hence the creation of this little wrapper.
 
 In a nutshell, it's just a simpler way to load font families with different sizes, managing and drawing text using them. 
 
-Note: You can still use the scaling factor. If you have loaded a SpriteFont with size 36pt and there's this one part where you want to draw some text with size 38pt, it's probably better to just draw the text with the size 36pt and a scaling factor of 1.06f than creating a new bitmap for the size 38pt.
+**Note**: You can still use the scaling factor to your advantage. If you have loaded a SpriteFont with size 36 and there's this one part where you want to draw some text with size 38 but haven't loaded a SpriteFont for that size, you can simply pass 38 to ``Font.DrawString`` along with the ``automaticScale`` parameter and it will find the closest size available and scale accordingly. Alternatively, you can also pass the scaling factor manually as you would normally. 
 
 ## Installation
 
@@ -28,6 +28,9 @@ List<Font> fonts = Font.GetAvailableSizes("Arial");
 
 # Write text to the screen by specifying font name and size in the Draw method
 Font.DrawString("Arial", 32, "Hello, world", new Vector2(8, 8), Color.White);
+
+# Write text to the screen with automatic scaling factor as fallback if specified size doesn't exist
+Font.DrawString("Arial", 66, "Hello, world", new Vector2(8, 8), Color.White, true);
 ```
 For compatibility and ease of use, the methods normally used by MonoGame's SpriteFont and SpriteBatch are implemented using the same names. So ``SpriteBatch.DrawString`` becomes ``Font.DrawString`` where the first two parameters are font name and size respectively instead of a direct SpriteFont reference. The same thing happens to ``SpriteFont.MeasureString`` where you can call ``Font.MeasureString`` and pass either a Font object or a font name and size along with the text to measure.
 
